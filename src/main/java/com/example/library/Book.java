@@ -137,10 +137,6 @@ public class Book {
     public static Book createFromProperties(String titleKey, String authorKey) {
         Properties properties = new Properties();
         try (InputStream input = Book.class.getClassLoader().getResourceAsStream("config.properties")) {
-            if (input == null) {
-                System.out.println("Извините, не удалось найти config.properties");
-                return null;
-            }
             properties.load(input);
             String title = properties.getProperty(titleKey);
             String author = properties.getProperty(authorKey);
